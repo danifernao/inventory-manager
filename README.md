@@ -4,10 +4,12 @@ Aplicación web para la gestión de inventario elaborado con Laravel y Vue.js.
 
 ![Captura de pantalla de la aplicación web](/screenshot.png)
 
-## Instalación y configuración
+## Instalación
 
-1. Asegúrate de tener instalado Docker y su servicio en ejecución.
-2. Descarga o clona este repositorio e ingresa a él.
+### Instalación con Docker
+
+1. Asegúrate de tener instalado [Docker](https://www.docker.com/products/docker-desktop/) y que el servicio esté en ejecución.
+2. Descarga o clona este repositorio y accede a la carpeta del proyecto.
 3. Renombra el archivo `.env.example` a `.env`.
 4. Opcional. Abre el archivo `.env`, ubícate en las líneas `RECAPTCHA_SITE_KEY` y `RECAPTCHA_SECRET_KEY` y escribe al lado las claves de tu reCAPTCHA:
 
@@ -16,15 +18,93 @@ RECAPTCHA_SITE_KEY=CLAVE_SITIO
 RECAPTCHA_SECRETE_KEY=CLAVE_SECRETA
 ```
 
-5. Abre el terminal y ejecuta lo siguiente para instalar y poner en marcha los contenedores:
+5. Abre la terminal y ejecuta lo siguiente para instalar y levantar los contenedores:
 
 ```
 docker compose up --watch --build
 ```
 
-6. Abre el navegador web y visita la dirección `http://localhost/` para visualizar la aplicación.
-7. Visita la dirección `http://localhost:8888/` para acceder a phpMyAdmin.
-8. Visita la dirección `http://localhost:8025/` para acceder a MailHog.
+6. Abre `http://localhost/` en tu navegador para ver la aplicación.
+7. Abre `http://localhost:8025/` para acceder a MailHog.
+
+### Instalación manual
+
+#### Requisitos
+
+-   [PHP 8.1](https://www.php.net/downloads)
+-   [Composer](https://getcomposer.org/download/)
+-   Servidor [MySQL 9.3](https://dev.mysql.com/downloads/mysql/) iniciado con base de datos creada.
+-   [Node.js](https://nodejs.org/en/download)
+-   [MailHog 1.0.1](https://github.com/mailhog/MailHog/releases/tag/v1.0.1) en ejecución.
+
+#### Instalación y configuración
+
+1. Descarga o clona este repositorio y accede a la carpeta del proyecto.
+2. Renombra el archivo `.env.example` a `.env`.
+3. Abre el archivo `.env` y reemplaza el bloque `DB_` con tus datos:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=EL_NOMBRE_DE_LA_BASE_DE_DATOS
+DB_USERNAME=EL_USUARIO_DE_LA_BASE_DE_DATOS
+DB_PASSWORD=LA_CONTRASEÑA_DE_LA_BASE_DE_DATOS
+```
+
+4. Opcional. Ubícate en las líneas `RECAPTCHA_SITE_KEY` y `RECAPTCHA_SECRET_KEY` y escribe al lado las claves de tu reCAPTCHA:
+
+```
+RECAPTCHA_SITE_KEY=CLAVE_SITIO
+RECAPTCHA_SECRETE_KEY=CLAVE_SECRETA
+```
+
+5. Ejecuta en la terminal lo siguiente para instalar las dependencias PHP:
+
+```
+composer install
+```
+
+6. Ejecuta lo siguiente para generar la clave de la aplicación:
+
+```
+php artisan key:generate
+```
+
+7. Ejecuta lo siguiente para crear el enlace simbólico para el acceso público a archivos:
+
+```
+php artisan storage:link
+```
+
+8. Ejecuta lo siguiente para realizar las migraciones:
+
+```
+php artisan migrate --seed
+```
+
+9. Ejecuta lo siguiente para instalar las dependencias JavaScript:
+
+```
+npm install
+```
+
+#### Visualización
+
+1. En la raíz del proyecto, abre la terminal y ejecuta lo siguiente para iniciar el servidor web:
+
+```
+php artisan serve
+```
+
+2. Abre otra terminal y ejecuta lo siguiente para iniciar el entorno de desarrollo:
+
+```
+npm run hot
+```
+
+3. Abre `http://localhost:8000/` en tu navegador para visualizar la aplicación.
+4. Abre `http://localhost:8025/` para acceder a MailHog.
 
 ## Credenciales
 
