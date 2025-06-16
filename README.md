@@ -18,7 +18,7 @@ RECAPTCHA_SITE_KEY=CLAVE_SITIO
 RECAPTCHA_SECRETE_KEY=CLAVE_SECRETA
 ```
 
-5. Abre la terminal y ejecuta lo siguiente para instalar y levantar los contenedores:
+5. Abre la terminal y ejecuta lo siguiente para instalar las dependencias y levantar los contenedores:
 
 ```
 docker compose up --watch --build
