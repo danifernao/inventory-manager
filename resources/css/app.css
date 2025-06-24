@@ -1,0 +1,434 @@
+/* Recursos */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+/* Colores */
+
+:root {
+    --color-blanco-1: rgb(255, 255, 255);
+    --color-blanco-2: rgb(249, 249, 249);
+    --color-blanco-3: rgb(244, 244, 244);
+    --color-blanco-4: rgb(241, 245, 249);
+    --color-negro-1: rgb(68, 68, 68);
+    --color-negro-2: rgb(32, 33, 35);
+    --color-gris-1: rgb(221, 221, 221);
+    --color-gris-2: rgb(206, 206, 206);
+    --color-gris-3: rgb(187, 187, 187);
+    --color-gris-4: rgb(168, 168, 168);
+    --color-naranja-1: rgb(253, 230, 189);
+    --color-naranja-2: rgb(255, 152, 76);
+    --color-naranja-3: rgb(255, 122, 24);
+    --color-naranja-4: rgb(240, 102, 0);
+    --color-naranja-5: rgb(196, 83, 0);
+    --color-rojo-1: rgb(251, 206, 206);
+    --color-rojo-2: rgb(236, 50, 50);
+    --color-rojo-3: rgb(219, 47, 47);
+    --color-rojo-4: rgb(187, 40, 40);
+    --color-rojo-5: rgb(145, 0, 0);
+    --color-verde-1: rgb(197, 240, 197);
+    --color-verde-2: rgb(0, 115, 0);
+    --color-verde-3: rgb(0, 85, 0);
+    --color-verde-4: rgb(0, 62, 0);
+    --color-azul-1: rgb(211, 238, 255);
+    --color-azul-2: rgb(100, 194, 255);
+    --color-azul-3: rgb(48, 109, 255);
+    --color-azul-4: rgb(36, 101, 255);
+    --color-azul-5: rgb(21, 90, 255);
+    --color-azul-6: rgb(0, 106, 174);
+    --color-purpura-1: rgb(209, 206, 217);
+    --color-purpura-2: rgb(181, 178, 187);
+    --color-purpura-3: rgb(142, 138, 149);
+    --color-purpura-4: rgb(105, 103, 108);
+    --color-purpura-5: rgb(94, 84, 111);
+    --color-purpura-6: rgb(77, 68, 91);
+    --color-purpura-7: rgb(59, 53, 70);
+    --color-purpura-8: rgb(48, 43, 57);
+    --color-purpura-9: rgb(38, 34, 45);
+}
+
+
+/* General */
+
+::-webkit-scrollbar {
+    width: 0.56rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 1.25rem;
+    border: transparent;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+a {
+    color: var(--color-naranja-4);
+    text-decoration: none;
+}
+
+
+/* Estructura */
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--color-blanco-4);
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-negro-1);
+}
+
+body, #app {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#app {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Formulario */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+select,
+textarea {
+    display: block;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='url'],
+input[type='date'],
+input[type='number'],
+select,
+textarea {
+    padding: 0.5rem 0.8rem;
+    border: 0.06rem solid var(--color-gris-1);
+    border-radius: 0.3rem;
+    background-color: var(--color-blanco-1);
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--color-negro-1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='url']:focus,
+input[type='date']:focus,
+input[type='number']:focus,
+select:focus,
+textarea:focus {
+    outline: 0.06rem solid var(--color-gris-3);
+}
+
+input[type='checkbox'] {
+    margin-left: 0;
+}
+
+input:read-only,
+input:disabled,
+select:disabled {
+    background-color: var(--color-gris-1) !important;
+}
+
+fieldset {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    min-width: 0;
+    border: 0.06rem solid var(--color-gris-1);
+    border-radius: 0.3rem;
+}
+
+legend {
+    font-weight: bold;
+}
+
+
+/* Botones */
+
+button {
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 0.3rem;
+    transition: background-color 100ms ease-out;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+.boton-pequeno {
+    padding: 0.3rem 0.5rem;
+}
+
+.boton-cancelar,
+.boton-aceptar,
+.boton-gris {
+    background-color: var(--color-gris-1) !important;
+    color: var(--color-negro-1) !important;
+}
+
+body:not(.movil) .boton-cancelar:not(:disabled):hover,
+body:not(.movil) .boton-cancelar:not(:disabled):focus,
+body:not(.movil) .boton-gris:not(:disabled):hover,
+body:not(.movil) .boton-gris:not(:disabled):focus {
+    background-color: var(--color-gris-2) !important;
+}
+
+body:not(.movil) .boton-cancelar:not(:disabled):active,
+body:not(.movil) .boton-gris:not(:disabled):active {
+    background-color: var(--color-gris-3) !important;
+}
+
+.boton-rojo {
+    background-color: var(--color-rojo-2) !important;
+    color: var(--color-blanco-1) !important;
+}
+
+body:not(.movil) .boton-rojo:not(:disabled):hover,
+body:not(.movil) .boton-rojo:not(:disabled):focus {
+    background-color: var(--color-rojo-3) !important;
+}
+
+body:not(.movil) .boton-rojo:not(:disabled):active {
+    background-color: var(--color-rojo-4) !important;
+}
+
+.boton-verde {
+    background-color: var(--color-verde-2) !important;
+    color: var(--color-blanco-1) !important;
+}
+
+body:not(.movil) .boton-verde:not(:disabled):hover,
+body:not(.movil) .boton-verde:not(:disabled):focus {
+    background-color: var(--color-verde-3) !important;
+}
+
+body:not(.movil) .boton-verde:not(:disabled):active {
+    background-color: var(--color-verde-4) !important;
+}
+
+body:not(.movil) .boton-azul {
+    background-color: var(--color-azul-3) !important;
+    color: var(--color-blanco-1) !important;
+}
+
+body:not(.movil) .boton-azul:not(:disabled):hover,
+body:not(.movil) .boton-azul:not(:disabled):focus {
+    background-color: var(--color-azul-4) !important;
+}
+
+body:not(.movil) .boton-azul:not(:disabled):active {
+    background-color: var(--color-azul-5) !important;
+}
+
+.boton-naranja {
+    background-color: var(--color-naranja-2) !important;
+    color: var(--color-blanco-1) !important;
+}
+
+body:not(.movil) .boton-aceptar:not(:disabled):hover,
+body:not(.movil) .boton-aceptar:not(:disabled):focus,
+body:not(.movil) .boton-naranja:not(:disabled):hover,
+body:not(.movil) .boton-naranja:not(:disabled):focus {
+    background-color: var(--color-naranja-3) !important;
+    color: var(--color-blanco-1) !important;
+}
+
+body:not(.movil) .boton-aceptar:not(:disabled):active,
+body:not(.movil) .boton-naranja:not(:disabled):active {
+    background-color: var(--color-naranja-4) !important;
+}
+
+.color-rojo {
+    color: var(--color-rojo-4) !important;
+}
+
+.color-naranja {
+    color: var(--color-naranja-5);
+}
+
+.color-verde {
+    color: var(--color-verde-2) !important;
+}
+
+
+/* SweetAlert2 */
+
+.swal2-popup.notificacion.animate__slideInDown,
+.swal2-popup.notificacion.animate__slideOutUp {
+    --animate-duration: 300ms !important;
+}
+
+.swal2-popup.notificacion .swal2-close {
+    align-self: start !important;
+}
+
+.swal2-popup.notificacion .swal2-icon {
+    margin-right: 0 !important;
+}
+
+.swal2-popup.notificacion .swal2-html-container {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.swal2-popup.alerta,
+.swal2-popup.confirmacion,
+.swal2-popup.formulario {
+    max-width: 20rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.swal2-popup.alerta .swal2-html-container {
+    text-align: left !important;
+}
+
+.swal2-popup.alerta .swal2-html-container,
+.swal2-popup.confirmacion .swal2-html-container,
+.swal2-popup.formulario .swal2-html-container {
+    margin: 1.5rem 1.5rem 0 !important;
+    font-size: 1rem !important;
+}
+
+.swal2-popup.formulario .swal2-title {
+    font-size: 1.5rem !important;
+}
+
+.swal2-popup.formulario .swal2-input-label {
+    margin-top: 1.5rem !important;
+}
+
+.swal2-popup.formulario .swal2-input {
+    height: auto !important;
+}
+
+.swal2-popup.formulario .swal2-input,
+.swal2-popup.formulario .swal2-textarea {
+    margin: 1rem 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.swal2-popup.formulario input,
+.swal2-popup.formulario input.swal2-inputerror,
+.swal2-popup.formulario .swal2-textarea {
+    box-shadow: none !important;
+}
+
+.swal2-popup.formulario .swal2-input:focus,
+.swal2-popup.formulario .swal2-textarea:focus {
+    border-color: var(--color-gris-1) !important;
+    outline: 0.06rem solid var(--color-gris-3) !important;
+}
+
+.swal2-popup.formulario .swal2-input:disabled {
+    opacity: 0.5;
+}
+
+.swal2-popup.formulario input.swal2-inputerror {
+    border-color: var(--color-gris-1) !important;
+}
+
+.swal2-popup.formulario .swal2-validation-message {
+    margin-top: 1.5rem !important;
+    font-size: 0.9rem !important;
+}
+
+.swal2-popup.html form fieldset {
+    margin-bottom: 0 !important;
+}
+
+.swal2-popup.html form legend {
+    font-size: 1rem;
+}
+
+.swal2-popup.html form .radios {
+    display: flex;
+    gap: 1rem;
+}
+
+.swal2-popup.html form .radios div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.swal2-popup.html form .radios label {
+    font-size: 0.9rem;
+}
+
+.swal2-popup.html form input[type="radio"] {
+    margin: 0;
+}
+
+.swal2-popup.html form p {
+    margin: 0;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.swal2-popup.html form .cargando {
+    font-style: italic;
+}
+
+.swal2-popup.html form .mensaje-sin-registros {
+    color: var(--color-naranja-4);
+}
+
+.swal2-popup.html form.inhabilitado {
+    pointer-events: none;
+}
+    
+.swal2-popup.html form.inhabilitado input,
+.swal2-popup.html form.inhabilitado select {
+    opacity: 0.5;
+}
+
+.swal2-popup.html form.cargado .cargando,
+.swal2-popup.html form.sin-registros select,
+.swal2-popup.html form:not(.cargado) select,
+.swal2-popup.html form:not(.sin-registros) .mensaje-sin-registros,
+.swal2-popup.html form:not(.visible) .registros {
+    display: none;
+}
+
+.swal2-popup .swal2-actions,
+.swal2-popup .swal2-actions {
+    gap: 0.3rem !important;
+    margin: 1.5em 1.5em 0 auto !important;
+}
+
+.swal2-popup .swal2-actions button,
+.swal2-popup .swal2-actions button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+}
+
+.swal2-popup.animate__fadeInDown,
+.swal2-popup.animate__fadeOutUp {
+    --animate-duration: 100ms !important;
+}
