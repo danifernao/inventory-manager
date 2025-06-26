@@ -14,7 +14,7 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('usuarios')->insert([
+        DB::table('usuarios')->insertOrIgnore([
             'primer_nombre' => 'Admin',
             'correo' => 'admin@example.com',
             'contrasena' => Hash::make('admin@IWAPP#22'),
@@ -22,7 +22,7 @@ class UsuarioSeeder extends Seeder
             'es_respaldo' => 1
         ]);
         
-        DB::table('usuarios')->insert([
+        DB::table('usuarios')->insertOrIgnore([
             'primer_nombre' => 'Emily',
             'primer_apellido' => 'Haines',
             'correo' => 'emily@example.com',
@@ -30,7 +30,7 @@ class UsuarioSeeder extends Seeder
             'es_administrador' => 1
         ]);
         
-        DB::table('usuarios')->insert([
+        DB::table('usuarios')->insertOrIgnore([
             'primer_nombre' => 'Ludovico',
             'primer_apellido' => 'Einaudi',
             'correo' => 'ludovico@example.com',

@@ -5,9 +5,11 @@ services:
       dockerfile: Dockerfile.laravel
     develop:
       watch:
-        - path: ./
+        - action: sync
+          path: ./
           target: /var/www/html
-          action: sync          
+        - action: rebuild
+          path: composer.json
     depends_on:
       - mysql
     ports:
@@ -19,6 +21,10 @@ services:
     volumes:
       - ./:/var/www/html
       - /var/www/html/node_modules
+    develop:
+      watch:
+        - action: rebuild
+          path: package.json
     ports:
       - 8080:8080
     depends_on:
@@ -26,18 +32,17 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: ${DB_DATABASE}
+    volumes:
+      - mysql_data:/var/lib/mysql
   phpmyadmin:
-    image: phpmyadmin:5.1
+    image: phpmyadmin
     environment:
-      PMA_ARBITRARY: 1
-      PMA_HOST: ${DB_HOST}
-      PMA_USER: ${DB_USERNAME}
-      PMA_PASSWORD: ${DB_PASSWORD}
-      PMA_PORT: ${DB_PORT}
+      - PMA_HOST=mysql
+      - PMA_port=3306
     ports:
       - 8888:80
     depends_on:
@@ -46,3 +51,5 @@ services:
     image: mailhog/mailhog
     ports:
       - 8025:8025
+volumes:
+  mysql_data:

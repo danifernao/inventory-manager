@@ -13,7 +13,7 @@ class AplicacionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('aplicacion')->insert([
+        DB::table('aplicacion')->insertOrIgnore([
             'titulo' => 'Gestión de Inventarios',
             'descripcion' => 'Aplicación web para la gestión de inventarios.',
             'img_icono_url' => '/storage/aplicacion/icono.png',
